@@ -7,11 +7,12 @@ import { SettingsComponent } from './settings.component';
 
 @NgModule({
   declarations: [
-    SettingsComponent
+    SettingsComponent,
   ],
   imports: [
     CommonModule,
-    SettingsRoutingModule
-  ]
+    SettingsRoutingModule,
+  ],
 })
-export class SettingsModule { }
+export class SettingsModule {
+}

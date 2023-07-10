@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Pictures Creation</div>
+
+    <!-- Form. -->
+    <div class="card-body" id="card">
+      <form [formGroup]="formImage">
+
+        <!-- URL. -->
+        <div class="mb-3">
+          <label class="form-label" for="img-url">Url: </label>
+          <input class="form-control" formControlName="url" id="img-url" placeholder="enter URL" type="text">
+        </div>
+
+        <!-- Label. -->
+        <div class="mb-3">
+          <label class="form-label" for="img-label">Label: </label>
+          <input class="form-control" formControlName="label" id="img-label" placeholder="enter label" type="text">
+        </div>
+
+        <!-- Album. -->
+        <div class="mb-3">
+          <label class="form-label" for="album-selector">Select the album: </label>
+          <select class="form-select" formControlName="albumId" id="album-selector">
+            <option [value]="null">None</option>
+            <option *ngFor="let album of albums" [value]="album.id">
+              {{ album.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Submit. -->
+        <button (click)="submit()" class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

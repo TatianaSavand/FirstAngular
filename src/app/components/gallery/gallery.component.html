@@ -1,1 +1,68 @@
-<p>gallery works!</p>
+<!-- Input for searching images. -->
+<div class="container">
+  <input (ngModelChange)="searchImages($event)"
+         [(ngModel)]="search"
+         class="form-control mt-3"
+         placeholder="Search image" type="text">
+</div>
+
+<!-- Albums. -->
+<div class="container">
+  <div class="row pt-4">
+    <div *ngFor="let album of albums" class="col-12 col-md-6 col-lg-2 mb-4">
+      <div [class.active-album]="album.id === selectedAlbum?.id" class="album-wrapper">
+
+        <!-- Default image for album. -->
+        <img (click)="showAlbumImages(album)" src="assets/img/folder.png">
+
+        <!-- Delete button. -->
+        <button (click)="deleteAlbum(album.id)" class="btn btn-outline-dark btn-delete">✕</button>
+
+        <!-- Name of album. -->
+        <h5 class="text-center">{{ album.name }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Name of active album. -->
+  <div class="container bg-light text-center py-3">
+    <h3>
+      <span *ngIf="!selectedAlbum">All images</span>
+      <span *ngIf="selectedAlbum">{{ selectedAlbum.name }} images</span>
+    </h3>
+  </div>
+
+  <!-- Images. -->
+  <div class="row pt-4">
+    <div *ngFor="let image of filteredImages" class="col-12 col-md-6 col-lg-3">
+      <div class="card mb-4" style="min-height: 25rem;">
+
+        <!-- Image. -->
+        <img #imgElement (error)="imgElement.src = 'assets/img/default.png'"
+             [src]="image.url"
+             class="card-img-top image">
+
+        <!-- Delete button. -->
+        <button (click)="deleteImage(image.id)" class="btn btn-outline-dark btn-delete">✕</button>
+
+        <!-- Card body. -->
+        <div class="card-body">
+
+          <!-- Label. -->
+          <h5 class="text-center">{{ image.label }}</h5>
+
+          <!-- Created date. -->
+          <p class="text-center">{{ image.date | date }}</p>
+
+          <!-- Album selector. -->
+          <p class="text-center">
+            <span *ngIf="image.albumId">{{ albumDict[image.albumId].name }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

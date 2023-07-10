@@ -1,38 +1,38 @@
 <!-- Side Bar -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2 bg-light" style="height: 100vh">
+    <div class="col-2 bg-light" style="position: sticky; top: 0; height: 100vh;">
       <ul class="nav flex-column">
         <li class="nav-item">
           <h3>My App</h3>
         </li>
         <li class="nav-item">
-          <a class="nav-link"
+          <a [routerLinkActiveOptions]="{ exact: true }"
              aria-current="page"
-             routerLink="gallery"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }">Gallery</a>
+             class="nav-link"
+             routerLink="/"
+             routerLinkActive="active">Gallery</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active"
+          <a [routerLinkActiveOptions]="{ exact: true }"
              aria-current="page"
-             routerLink="creating-album"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }">Creating-album</a>
+             class="nav-link active"
+             routerLink="create-album"
+             routerLinkActive="active">Create album</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active"
+          <a [routerLinkActiveOptions]="{ exact: true }"
              aria-current="page"
-             routerLink="uploading-image"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }">Uploading image</a>
+             class="nav-link active"
+             routerLink="create-image"
+             routerLinkActive="active">Create image</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active"
+          <a [routerLinkActiveOptions]="{ exact: true }"
              aria-current="page"
+             class="nav-link active"
              routerLink="settings"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }">Settings</a>
+             routerLinkActive="active">Settings</a>
         </li>
       </ul>
     </div>

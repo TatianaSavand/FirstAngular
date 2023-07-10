@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CreatingAlbumComponent} from "./creating-album.component";
+import { CreateAlbumComponent } from './create-album.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CreatingAlbumComponent,
-  }
+    component: CreateAlbumComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CreatingAlbumRoutingModule { }
+export class CreateAlbumRoutingModule {
+}

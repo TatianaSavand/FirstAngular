@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">Album Creation</div>
+
+    <!-- Form. -->
+    <div class="card-body" id="card">
+      <form [formGroup]="formAlbum">
+
+        <!-- Album name. -->
+        <div class="mb-3">
+          <label class="form-label" for="album-name">Album name: </label>
+          <input class="form-control" formControlName="name" id="album-name" placeholder="enter album name" type="text">
+        </div>
+
+        <!-- Crete. -->
+        <button (click)="create()" class="btn btn-primary" type="submit">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
